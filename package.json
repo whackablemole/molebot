@@ -1,0 +1,22 @@
+{
+  "name": "molebot",
+  "version": "1.0.0",
+  "description": "Whackablemole's discord bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whackablemole/molebot.git"
+  },
+  "author": "WhackableMole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whackablemole/molebot/issues"
+  },
+  "homepage": "https://github.com/whackablemole/molebot#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
+}
