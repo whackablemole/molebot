@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"] });
 
-const prefix = "-";
+const prefix = "$";
 
 const fs = require('fs');
 
@@ -20,17 +20,31 @@ client.once('ready', () => {
 	console.log('MoleBot is online!');
 });
 
+client.on('guildMemberAdd', guildMember => {
+	let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'New Arrival');
+
+	guildMember.roles.add(welcomeRole);
+});
+
 client.on('messageCreate', message => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 
-	if(command === 'ping'){
-		client.commands.get('ping').execute(message, args);
-	} else if (command === 'youtube' || command === "yt"){
-		client.commands.get('youtube').execute(message, args);
+	switch (command) {
+		case 'ping': 
+			client.commands.get('ping').execute(message, args);
+			break;
+		case 'youtube':
+			client.commands.get('youtube').execute(message, args);
+			break;
+		case 'agree':
+			client.commands.get('agree').execute(message, args);
+			break;
+
 	}
+
 });
 
 client.login('OTIwMjQ5MTk2NjQ3NDM2MzE4.Ybhm2Q.EOa29IKmWBDy5Msoow70oHWBsnc');
