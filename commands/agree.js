@@ -46,7 +46,7 @@ module.exports = {
 			message.channel.send("There is no channel inluding the word 'lobby' so I can't send a welcome message. That's rather sad, when you think about it...")
 			.then(msg => {
 				// Above message will be deleted after 5 seconds
-				setTimeout(() => {msg.delete()}, 5000);
+				setTimeout(() => {msg.delete()}, 8000);
 			})
 			.catch(console.error);
 		}
