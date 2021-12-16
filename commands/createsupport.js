@@ -5,7 +5,6 @@ module.exports = {
 
 		// Check to make sure the current user is an admin user. Only admin users can use this command
 		if (!message.member.permissions.has("ADMINISTRATOR")) {
-			console.log("Administrator = ", message.member.permissions.has("ADMINISTRATOR"));
 			message.channel.send(`What are you doing?! Only administrators can use that command!`)
 							.then(msg => { 
 								setTimeout(() => {msg.delete()}, 10000);
