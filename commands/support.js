@@ -27,25 +27,22 @@ module.exports = {
             };
         }
 
-        function isActive(msg) {
-            // If the Support Staff role doesn't exist on this server, just stop
-            console.log("Support command is not activated on this server");
-            console.log(!(!supportRole));
+        function isActive() {
 		    return !(!supportRole); 
         }
 
         function joinSupport(msg) {
-            if(!isActive(msg)) return;
+            if(!isActive()) return;
             msg.member.roles.add(supportRole);
         }
 
         function leaveSupport(msg) {
-            if(!isActive(msg)) return;
+            if(!isActive()) return;
             msg.member.roles.remove(supportRole);
         }
 
         function help(msg) {
-            if(!isActive(msg)) return;
+            if(!isActive()) return;
             msg.channel.send("Use `$support join` to join the Support Staff, or `$support leave` in order to leave the Support Staff. To deactivate the support system, simply delete the Support Staff role.").catch(console.error);
         }
         
