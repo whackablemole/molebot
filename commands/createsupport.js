@@ -13,15 +13,25 @@ module.exports = {
 		}
 		
 		// Check to make sure the support role doesn't already exist
-		if (message.guild.roles.cache.find(role => role.name === "Support Staff")) return;
+		if (!message.guild.roles.cache.find(role => role.name === "Support Staff")) {
+			message.guild.roles.create({
+				name: 'Support Staff',
+				color: '#db2edb',
+				mentionable: true,
+				reason: "Support staff are needed to help our guests"
+			});
+		};
 
-		// Add the new support role because it doesn't exist already. Make sure that the role is also mentionable by all members
-		message.guild.roles.create({
-			name: 'Support Staff',
-			color: '#db2edb',
-			mentionable: true,
-			reason: "Support staff are needed to help our guests"
-		});
+		// Check to make sure the community-support channel doesn't already exist
+		if (!message.guild.channels.cache.find(ch => ch.name.includes('community-support'))) {
+			message.guild.channels.create('community-support', {
+				type: 'text',
+				permissionOverwrites: [{
+					id: message.guild.roles.everyone,
+					allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY']
+				}]
+			}).catch(console.error);
+		}
 
 		// Delete the original message from the channel
 		message.delete();
