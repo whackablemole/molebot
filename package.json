@@ -18,6 +18,7 @@
   "homepage": "https://github.com/whackablemole/molebot#readme",
   "dependencies": {
     "discord.js": "^13.3.1",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.6"
   }
 }
