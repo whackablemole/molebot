@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+require("dotenv").config();
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"] });
 
@@ -49,9 +50,12 @@ client.on('messageCreate', message => {
 		case 'engineer':
 			client.commands.get('engineer').execute(message, textString);
 			break;
+		case 'support':
+			client.commands.get('support').execute(message, args);
+			break;
 
 	}
 
 });
 
-client.login('OTIwMjQ5MTk2NjQ3NDM2MzE4.Ybhm2Q.EOa29IKmWBDy5Msoow70oHWBsnc');
+client.login(process.env.CLIENT_TOKEN);
