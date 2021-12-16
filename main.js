@@ -31,7 +31,8 @@ client.on('messageCreate', message => {
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
-
+	const textString = message.content.slice(prefix.length + command.length).trim();
+	
 	switch (command) {
 		case 'ping': 
 			client.commands.get('ping').execute(message, args);
@@ -41,6 +42,12 @@ client.on('messageCreate', message => {
 			break;
 		case 'agree':
 			client.commands.get('agree').execute(message, args);
+			break;
+		case 'createsupport':
+			client.commands.get('createsupport').execute(message);
+			break;
+		case 'engineer':
+			client.commands.get('engineer').execute(message, textString);
 			break;
 
 	}

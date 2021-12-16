@@ -41,7 +41,7 @@ module.exports = {
   .catch(console.error);
 
   	if(lobbyChannel) {
-		  lobbyChannel.send({ embeds: [embed]}).catch(console.log.error)
+		  lobbyChannel.send({ embeds: [embed]}).catch(console.error)
 		} else {
 			console.log(`No welcome channel to send messages to...`);
 			message.channel.send("There is no channel inluding the word 'lobby' so I can't send a welcome message. That's rather sad, when you think about it...")
