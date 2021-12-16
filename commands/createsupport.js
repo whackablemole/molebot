@@ -22,17 +22,6 @@ module.exports = {
 			});
 		};
 
-		// Check to make sure the community-support channel doesn't already exist
-		if (!message.guild.channels.cache.find(ch => ch.name.includes('community-support'))) {
-			message.guild.channels.create('community-support', {
-				type: 'text',
-				permissionOverwrites: [{
-					id: message.guild.roles.everyone,
-					allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY']
-				}]
-			}).catch(console.error);
-		}
-
 		// Delete the original message from the channel
 		message.delete();
 	}
