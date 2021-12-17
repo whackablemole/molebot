@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"] });
 
-const prefix = "$";
+const prefix = process.env.BOT_PREFIX;
 
 const fs = require('fs');
 
