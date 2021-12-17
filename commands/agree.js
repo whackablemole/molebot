@@ -34,9 +34,9 @@ module.exports = {
 		// Delete every message accept the pinned message from the welcome-message channel
 		message.channel.messages.fetch({ limit: 100 })
   								.then(fetched => {
-    	const notPinned = fetched.filter(fetchedMsg => !fetchedMsg.pinned);
+    	const notPinned = fetched.filter(fetchedMsg => !fetchedMsg.pinned).catch(console.error);
 
-    	message.channel.bulkDelete(notPinned, true);
+    	message.channel.bulkDelete(notPinned, true).catch(console.error);
   })
   .catch(console.error);
 

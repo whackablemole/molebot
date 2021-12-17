@@ -58,7 +58,7 @@ client.on('messageCreate', message => {
 			break;
 		case 'norris':
 			client.commands.get('norris').execute(message);
-
+			break;
 	}
 
 });
