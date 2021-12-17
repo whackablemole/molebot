@@ -14,6 +14,6 @@ module.exports = {
             headers: { Accept: "application/json" },
           }).then(response => response.json()).catch(console.error);
 
-        message.reply(dadjoke.joke);
+        message.reply(dadjoke.joke).catch(console.error);
 	}
 }
