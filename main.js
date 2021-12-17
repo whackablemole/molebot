@@ -44,11 +44,11 @@ client.on('messageCreate', message => {
 		case 'agree':
 			client.commands.get('agree').execute(message, args);
 			break;
-		case 'createsupport':
-			client.commands.get('createsupport').execute(message);
-			break;
 		case 'engineer':
 			client.commands.get('engineer').execute(message, textString);
+			break;
+		case 'rc':
+			client.commands.get('rc').execute(message, args);
 			break;
 		case 'support':
 			client.commands.get('support').execute(message, args);
