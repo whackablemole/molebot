@@ -1,13 +1,5 @@
 const Discord = require('discord.js');
 require("dotenv").config();
-const { Pool, Client} = require('pg');
-
-const pool = new Pool({connectionString: process.env.PG_CONNECTIONSTRING});
-
-pool.query('SELECT NOW()', (err, res) => {
-	console.log(err, res);
-	pool.end;
-})
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"] });
 
