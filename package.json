@@ -4,6 +4,7 @@
   "description": "Whackablemole's discord bot",
   "main": "main.js",
   "scripts": {
+    "server": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,9 +22,18 @@
   },
   "homepage": "https://github.com/whackablemole/molebot#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
+    "helmet": "^5.0.1",
+    "knex": "^0.95.15",
+    "morgan": "^1.10.0",
     "node-fetch": "^2.6.6",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "sqlite3": "^5.0.2",
+    "youtube-notification": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
