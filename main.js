@@ -59,6 +59,10 @@ client.on('messageCreate', message => {
 		case 'norris':
 			client.commands.get('norris').execute(message);
 			break;
+		case 'help':
+			client.commands.get('help').execute(message);
+			break;
+
 	}
 
 });
