@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, CommandInteractionOptionResolver } = require('discord.js');
 
 module.exports = {
 	name: "agree",
@@ -34,11 +34,9 @@ module.exports = {
 		// Delete every message accept the pinned message from the welcome-message channel
 		message.channel.messages.fetch({ limit: 100 })
   								.then(fetched => {
-    	const notPinned = fetched.filter(fetchedMsg => !fetchedMsg.pinned).catch(console.error);
-
-    	message.channel.bulkDelete(notPinned, true).catch(console.error);
-  })
-  .catch(console.error);
+    	const notPinned = fetched.filter(fetchedMsg => !fetchedMsg.pinned)
+		message.channel.bulkDelete(notPinned, true).catch(console.error);
+		}).catch(console.error);
 
   	if(lobbyChannel) {
 		  lobbyChannel.send({ embeds: [embed]}).catch(console.error)
