@@ -9,7 +9,7 @@ module.exports = {
 }
 
 async function add(guild) {
-	return await db('guilds').insert(guild, ['id','guildId']);
+	return await db('guilds').insert(guild, ['guildId','name']);
 }
 
 function find() {
