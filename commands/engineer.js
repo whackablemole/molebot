@@ -6,77 +6,9 @@ module.exports = {
 	description: "The race engineer command",
 	execute(message, arg) {
 
-		const args = arg.split(" ");
-
 		const engineer = require("./engineer.json");
-
-		function activate(message) {
-			// Just don't do anything if this user is not an administrator on this server
-			if(!message.member.permissions.has("ADMINISTRATOR"))  {
-				message.reply("Only administrators can activate this feature. Better try next time sucker.");
-				return;	
-			}
-
-			const status = {
-				guildId: message.guild.id,
-				command: 'engineer'
-			}
-
-			ActiveStatus.add(status)
-				.then(status => {
-					message.reply("`engineer` has been activated. Brace yourselves...");
-				})
-				.catch(error => {
-					if (error.errno === 19) {
-						console.log(error);
-						message.reply("`engineer` is already active...");
-					} else {
-						console.log(error);
-					}
-				})
-
-		}
-
-		function deactivate(message) {
-
-			// Just don't do anything if this user is not an administrator on this server
-			if(!message.member.permissions.has("ADMINISTRATOR"))  {
-				message.reply("Only administrators can deactivate this feature. Better luck next time sucker!");
-				return;	
-			}
-
-			ActiveStatus.deleteByCommandAndGuild(message.guild.id, 'engineer')
-				.then(res => {
-					// If it has returned a number greater than 0, stuff has been deleted
-					if (res !== 0){
-						message.reply("`engineer` has been deactivated. Sad times!");
-					} else {
-						message.reply("`engineer` isn't active anyway...");
-					}
-				})
-				.catch(err => {
-					console.log(err);
-				});
-		}
-
-		function getActive(message) {
-			// Just don't do anything if this user is not an administrator on this server
-			if(!message.member.permissions.has("ADMINISTRATOR"))  {
-				message.reply("Only administrators can activate this feature. Better try next time sucker.");
-				return;	
-			}
-
-			ActiveStatus.findByCommandAndGuild(message.guild.id, 'engineer')
-					.then(status => {
-						if (status !== undefined) {
-							prepareMessage(message);
-						}
-						else {
-							return false;
-						}
-					})
-					.catch(console.error);
-		}
+		const { deactivate, getStatus, activate } = require('../helpers/active');
+		const args = arg.split(" ");
 
 		function createAdviceEmbed(text) {
 			let adviceText = engineer[text];
@@ -113,28 +45,15 @@ module.exports = {
 			}
 		}
 
-		function getStatus(message) {
-			ActiveStatus.findByCommandAndGuild(message.guild.id, 'engineer')
-				.then(status => {
-					if (status !== undefined) {
-						message.reply("The `engineer` command is currently `activated`");
-					}
-					else {
-						message.reply("The `engineer` command is currently `deactivated`");
-					}
-				})
-				.catch(console.error);
-		}
-
 		switch (args[0]) {
 			case 'activate':
-				activate(message);
+				activate(message, 'engineer');
 				break;
 			case 'deactivate':
-				deactivate(message);
+				deactivate(message, 'engineer');
 				break;
 			case 'status':
-				getStatus(message);
+				getStatus(message, 'engineer');
 				break;
 			default:
 				doEngineer(message);
