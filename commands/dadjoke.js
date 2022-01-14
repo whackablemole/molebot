@@ -47,12 +47,8 @@ module.exports = {
 					message.reply("`dadjoke` has been activated. Brace yourselves...");
 				})
 				.catch(error => {
-					if (error.errno === 19) {
-						console.log(error);
-						message.reply("`dadjoke` is already active...");
-					} else {
-						console.log(error);
-					}
+					message.reply("`dadjoke` is already active...");
+					console.log(error);
 				})
 
 		}
