@@ -91,7 +91,7 @@ module.exports = {
 			message.channel.send({ embeds: [embed] }).catch(console.error);
 		}
 
-		function prepareMessage(message) {
+		function engineer(message) {
 			if (message.channel.name !== "acc-race-engineer") {
 				const raceEngChnl = message.guild.channels.cache.find(ch => ch.name.includes('acc-race-engineer'))
 				let raceEngText = ``;
@@ -137,7 +137,7 @@ module.exports = {
 				getStatus(message);
 				break;
 			default:
-				getActive(message);
+				engineer(message);
 				break;
 		}
 
