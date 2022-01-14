@@ -23,11 +23,7 @@ module.exports = {
 				console.log(guild);
 				message.channel.send("MoleBot initiated!")
 			})
-			.catch(error => {
-				if (error.errno === 19) {
-					message.reply("MoleBot has already been initiated within this Guild.");
-				}
-			})
+			.catch(console.error);
 		
 	}
 }
