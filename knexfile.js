@@ -7,12 +7,18 @@ module.exports = {
 	  connection: {
 		filename: './data/whackablemole.db3'
 	  },
+	  migrations: {
+		  directory: './src/migrations',
+	  },
+	  seeds: {
+		  directory: './src/seeds'
+	  },
 	  useNullAsDefault: true,
 	  pool: {
 		  afterCreate: (conn, done) => {
 			  conn.run("PRAGMA foreign_keys = ON", done);
 		  }
-	  }
+	  },
 	},
 	production: {
 		client: 'pg',
@@ -23,8 +29,11 @@ module.exports = {
 		},
 		migrations: {
 			tablename: 'knex_migrations',
-			directory: './migrations',
-		}
+			directory: './src/migrations',
+		},
+		seeds: {
+			directory: './src/seeds',
+		},
 	}
   
   };
