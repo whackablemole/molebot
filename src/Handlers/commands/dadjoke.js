@@ -1,6 +1,5 @@
 const fetch = require('node-fetch');
-const active = require('../helpers/active');
-const ActiveStatus = require('../models/ActiveStatus');
+const active = require('../helpers/activeStatus');
 
 module.exports = {
 	name: "dadjoke",

@@ -1,4 +1,4 @@
-const ActiveStatus = require('../models/ActiveStatus');
+const ActiveStatus = require('../../Models/ActiveStatus');
 
 module.exports = {
 

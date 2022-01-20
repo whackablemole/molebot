@@ -1,5 +1,4 @@
 const { MessageEmbed } = require('discord.js');
-const ActiveStatus = require('../models/ActiveStatus');
 
 module.exports = {
 	name: "engineer",

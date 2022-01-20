@@ -1,5 +1,5 @@
-const ActiveStatus = require('../models/ActiveStatus');
-const active = require('../helpers/active');
+const ActiveStatus = require('../../Models/ActiveStatus');
+const active = require('../helpers/activeStatus');
 
 module.exports = {
 	name: "support",

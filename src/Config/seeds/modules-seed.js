@@ -10,7 +10,8 @@ exports.seed = function(knex) {
 		{command: 'support', description: 'Join or leave the community support team', useCounter: 0},
 		{command: 'norris', description: 'Returns a Chuck Norris fact from the Chuck Norris API.', useCounter: 0},
 		{command: 'ping', description: 'A simple test of the API', useCounter: 0},
-		{command: 'youtube', description: "A shameless plug for Whackablemole's YouTube channel.", useCounter: 0}
+		{command: 'youtube', description: "A shameless plug for Whackablemole's YouTube channel.", useCounter: 0},
+		{command: "rc", description: "Allows members to log incidents after a race, for the Race Control staff to consider actions.", useCounter: 0}
       ]);
     });
 };

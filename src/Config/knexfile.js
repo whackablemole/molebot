@@ -5,13 +5,13 @@ module.exports = {
 	development: {
 	  client: 'sqlite3',
 	  connection: {
-		filename: './data/whackablemole.db3'
+		filename: './src/Config/data/whackablemole.db3'
 	  },
 	  migrations: {
-		  directory: './src/migrations',
+		  directory: './migrations',
 	  },
 	  seeds: {
-		  directory: './src/seeds'
+		  directory: './seeds'
 	  },
 	  useNullAsDefault: true,
 	  pool: {
@@ -29,10 +29,10 @@ module.exports = {
 		},
 		migrations: {
 			tablename: 'knex_migrations',
-			directory: './src/migrations',
+			directory: './migrations',
 		},
 		seeds: {
-			directory: './src/seeds',
+			directory: './seeds',
 		},
 	}
   

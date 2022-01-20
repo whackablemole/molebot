@@ -1,6 +1,6 @@
 require("dotenv").config();
-const server = require('./api/server');
-require('./discord/client.js');
+const server = require('./Structure/api/server');
+require('./Discord/client.js');
 
 const port = process.env.PORT || 5000;
 
